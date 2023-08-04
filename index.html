@@ -4,6 +4,30 @@
     <title>Gender Reveal</title>
 </head>
 <body>
-    <h1>The gender of the baby is: ???</h1>
+    <h1>
+        <!-- Fix the JavaScript code below -->
+        The gender of the baby is: ??? <!-- Use JavaScript to reveal the correct gender here -->
+    </h1>
+    <script>
+        async function getGender() {
+            try {
+                const response = await fetch('https://api.example.com/gender'); // Replace with the actual API endpoint
+                const data = await response.json();
+                return data.gender; // Assuming the API returns an object with a 'gender' property
+            } catch (error) {
+                console.error('Error fetching gender data:', error);
+                return null;
+            }
+        }
+
+        // Call the asynchronous function and update the gender reveal message
+        getGender().then(gender => {
+            if (gender) {
+                document.querySelector('h1').innerText = `The gender of the baby is: ${gender}`;
+            } else {
+                document.querySelector('h1').innerText = 'Failed to retrieve gender information. Please try again.';
+            }
+        });
+    </script>
 </body>
 </html>
