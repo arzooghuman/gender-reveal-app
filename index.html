@@ -23,7 +23,7 @@
         // Call the asynchronous function and update the gender reveal message
         getGender().then(data => {
            
-            document.querySelector('h1').innerText = `The gender of the baby is: ${data.gender}`;
+            document.querySelector('h1').innerText = `The gender of the baby is: ${data.record.gender}`;
         });
     </script>
 </body>
